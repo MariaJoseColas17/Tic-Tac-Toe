@@ -7,13 +7,63 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main id="app"></main>
+    <main id="app">
+      <section id="screen-loading" class="screen active">
+        <div class="loading-wrap">
+          <h1 class="loading-title">LOADING</h1>
+          <div class="bar">
+            <div class="bar__fill" id="barFill"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-menu" class="screen">
+        <div class="menu-wrap">
+          <h2 class="title-center">Tic Tac Toe</h2>
+          <button id="btnCpu" class="btn btn-blue">JUGADOR VS CPU</button>
+          <button id="btnPvp" class="btn btn-orange">JUGADOR VS JUGADOR</button>
+        </div>
+      </section>
+
+      <section id="screen-setup-pvp" class="screen">
+        <div class="form-card">
+          <h3 class="form-title">NOMBRAR JUGADORES</h3>
+          <input
+            id="pvpName1"
+            class="input"
+            type="text"
+            placeholder="Jugador 1"
+          />
+
+          <input
+            id="pvpName2"
+            class="input"
+            type="text"
+            placeholder="Jugador 2"
+          />
+          <button id="pvpStart" class="btn btn-orange wide">INICIAR</button>
+        </div>
+      </section>
+
+      <section id="screen-setup-p1" class="screen">
+        <div class="form-card">
+          <h3 class="form-title">NOMBRAR JUGADOR</h3>
+          <input
+            id="p1Name"
+            class="input"
+            type="text"
+            placeholder="Nombrar Jugador"
+          />
+          <button id="p1Start" class="btn btn-orange wide">INICIAR</button>
+        </div>
+      </section>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>

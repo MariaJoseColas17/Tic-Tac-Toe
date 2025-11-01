@@ -1,15 +1,10 @@
 :root {
   --white: #ffffff;
-  --blue: #25a0ec;
-  --orange: #e69100;
-  --yellow: #f7b94c;
+  --blue-cta: #2ab4fd;
+  --orange: #ef9519;
   --muted: #707070;
-  --dark-blue-1: #0b1a4a;
-  --dark-blue-2: #0e215f;
-  --panel-blue: #101a61;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --radius: 18px;
-  --gap: 14px;
+  --dark-1: #0b1a4a;
+  --shadow: 0 20px 40px #00000029;
   --font: "Roboto", sans-serif;
 }
 
@@ -19,30 +14,180 @@
   box-sizing: border-box;
 }
 
-html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  font-family: var(--font);
-  background-color: var(--dark-blue-1);
 }
-
 body {
-  background-image: url("./assets/Back.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  font-family: var(--font);
+  background: #0b1a4a url("./assets/Back.png") no-repeat center/cover fixed;
+  overflow: hidden;
 }
-
 @media (max-width: 1024px) {
   body {
     background-image: url("./assets/Backtablet.png");
   }
 }
-
 @media (max-width: 600px) {
   body {
     background-image: url("./assets/Backiphone.png");
   }
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+
+/* ===== LOADING (usa el mismo fondo del body) ===== */
+#screen-loading.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: transparent;
+}
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.loading-title {
+  color: #fff;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+/* Barra igual a la imagen */
+.bar {
+  width: 520px;
+  height: 36px;
+  border: 3px solid #fff;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+.bar__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    #ef9519 0%,
+    #d48316 90%,
+    rgba(11, 26, 74, 0.8) 100%
+  );
+  transition: width 0.1s linear;
+}
+
+/* ===== MENÚ / FORM ===== */
+.menu-wrap {
+  position: relative;
+  width: 520px;
+  max-width: 90%;
+  margin: 0 auto;
+  top: 25vh;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.title-center {
+  color: var(--white);
+  font-size: 69px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+}
+.btn {
+  border: none;
+  padding: 18px 22px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.btn-blue {
+  background: var(--blue-cta);
+  color: var(--white);
+}
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn.wide {
+  width: 520px;
+  max-width: 100%;
+}
+
+.form-card {
+  width: 520px;
+  max-width: 90%;
+  margin: 0 auto;
+  top: 22vh;
+  position: relative;
+  background: rgba(16, 26, 97, 0);
+}
+.form-title {
+  color: var(--white);
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  /* CAMBIO AÑADIDO AQUÍ PARA CENTRAR EL TEXTO */
+  text-align: center;
+}
+.input {
+  width: 520px;
+  max-width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  border: 0;
+  padding: 0 16px;
+  margin-bottom: 18px;
+  background: var(--white);
+  outline: none;
+  font-size: 25px;
+  font-weight: 400;
+  color: #000;
+  box-shadow: var(--shadow);
+}
+.input::placeholder {
+  color: #a9b0bb;
+  font-style: italic;
+  font-weight: 300;
+  font-size: inherit;
+  letter-spacing: 0.2px;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.input::-webkit-input-placeholder {
+  color: #a9b0bb;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  opacity: 1;
+}
+.input::-moz-placeholder {
+  color: #a9b0bb;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  opacity: 1;
+}
+.input:-ms-input-placeholder {
+  color: #a9b0bb;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  opacity: 1;
 }
