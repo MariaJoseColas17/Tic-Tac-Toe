@@ -13,7 +13,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main id="app"></main>
+    <main id="app">
+      <div id="screen-loading" class="screen active">
+        <h1>LOADING</h1>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div id="screen-menu" class="screen">
+        <button id="btn-launch" class="btn-primary">LAUNCH</button>
+      </div>
+
+      <div id="screen-setup" class="screen"></div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>

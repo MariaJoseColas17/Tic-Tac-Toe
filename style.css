@@ -12,13 +12,11 @@
   --gap: 14px;
   --font: "Roboto", sans-serif;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html,
 body {
   width: 100%;
@@ -27,22 +25,61 @@ body {
   font-family: var(--font);
   background-color: var(--dark-blue-1);
 }
-
 body {
   background-image: url("./assets/Back.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-
 @media (max-width: 1024px) {
   body {
     background-image: url("./assets/Backtablet.png");
   }
 }
-
 @media (max-width: 600px) {
   body {
     background-image: url("./assets/Backiphone.png");
   }
+}
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.screen.active {
+  display: flex;
+}
+#screen-loading {
+  flex-direction: column;
+  color: #fff;
+}
+.progress-bar {
+  width: 400px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+.progress {
+  width: 0;
+  height: 100%;
+  background: #e69100;
+  animation: load 3s forwards;
+}
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
+.btn-primary {
+  padding: 14px 28px;
+  border: 0;
+  border-radius: 12px;
+  background: #25a0ec;
+  color: #fff;
+  font-weight: 700;
 }
