@@ -7,13 +7,102 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main id="app"></main>
+    <main id="app">
+      <section id="screen-loading" class="screen active">
+        <div class="loading-wrap">
+          <h1 class="loading-title">LOADING</h1>
+          <div class="bar"><div class="bar__fill" id="barFill"></div></div>
+        </div>
+      </section>
+
+      <section id="screen-menu" class="screen">
+        <div class="menu-wrap">
+          <h2 class="title-center">Tic Tac Toe</h2>
+          <button id="btnCpu" class="btn btn-blue">JUGADOR VS CPU</button>
+          <button id="btnPvp" class="btn btn-orange">JUGADOR VS JUGADOR</button>
+        </div>
+      </section>
+
+      <section id="screen-setup-pvp" class="screen">
+        <div class="form-card">
+          <h3 class="form-title">NOMBRAR JUGADORES</h3>
+          <input id="pvpName1" class="input" placeholder="Jugador 1" />
+          <input id="pvpName2" class="input" placeholder="Jugador 2" />
+          <button id="pvpStart" class="btn btn-orange wide">INICIAR</button>
+        </div>
+      </section>
+
+      <section id="screen-setup-p1" class="screen">
+        <div class="form-card">
+          <h3 class="form-title">NOMBRAR JUGADOR</h3>
+          <input id="p1Name" class="input" placeholder="Nombrar Jugador" />
+          <button id="p1Start" class="btn btn-orange wide">INICIAR</button>
+        </div>
+      </section>
+
+      <section id="screen-game" class="screen">
+        <button id="btnBack" class="game-btn game-btn-back">
+          <img src="./assets/ionic-md-arrow-back.svg" alt="Back" />
+        </button>
+        <button id="btnRestart" class="game-btn game-btn-restart">
+          <img src="./assets/ionic-md-refresh.svg" alt="Restart" />
+        </button>
+
+        <div class="game-wrap">
+          <div class="vs-wrap">
+            <div class="side">
+              <div class="name" id="nameL">Jugador</div>
+              <div class="avatar avatar-left">
+                <span class="initials" id="initL">AA</span>
+                <span class="badge badge-x" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="vs vs-center-adjust">VS</div>
+            <div class="side">
+              <div class="name" id="nameR">CPU</div>
+              <div class="avatar avatar-right">
+                <span class="initials initials-blue" id="initR">CPU</span>
+                <span class="badge badge-o" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="col">
+                <div class="col-title" id="scoreLName">AA</div>
+                <div class="col-sub">0 GANADAS</div>
+              </div>
+              <div class="col">
+                <div class="col-title" id="scoreRName">CPU</div>
+                <div class="col-sub">0 GANADAS</div>
+              </div>
+              <div class="col">
+                <div class="col-title icon-scale"></div>
+                <div class="col-sub">0 EMPATES</div>
+              </div>
+            </div>
+            <div class="board" id="board">
+              <button class="cell" data-i="0"></button>
+              <button class="cell" data-i="1"></button>
+              <button class="cell" data-i="2"></button>
+              <button class="cell" data-i="3"></button>
+              <button class="cell" data-i="4"></button>
+              <button class="cell" data-i="5"></button>
+              <button class="cell" data-i="6"></button>
+              <button class="cell" data-i="7"></button>
+              <button class="cell" data-i="8"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
