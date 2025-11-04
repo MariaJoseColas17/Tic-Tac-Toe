@@ -6,8 +6,7 @@ Este proyecto no requiere compilación: es una app estática hecha con **HTML, C
 
 - Navegador moderno (Chrome, Edge, Firefox…)
 - (Recomendado) Servidor local simple:
-  - Extensión **Live Server** de VS Code, o
-  - `npx serve` ó `python -m http.server`
+  - Extensión **Live Server** de VS Code,
 
 ### Estructura básica
 
@@ -29,3 +28,7 @@ Este proyecto no requiere compilación: es una app estática hecha con **HTML, C
 4. Abrir `index.html` en el navegador (si usas Live Server se abre solo).
 
 El juego cargará en la pantalla **LOADING** y luego pasará automáticamente al menú principal.
+
+
+🎮 **¡Y listo, a jugar!** 🧡
+
