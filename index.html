@@ -77,15 +77,15 @@
             <div class="panel-head">
               <div class="col">
                 <div class="col-title" id="scoreLName">AA</div>
-                <div class="col-sub">0 GANADAS</div>
+                <div class="col-sub"><span id="scoreLVal">0</span> GANADAS</div>
               </div>
               <div class="col">
                 <div class="col-title" id="scoreRName">CPU</div>
-                <div class="col-sub">0 GANADAS</div>
+                <div class="col-sub"><span id="scoreRVal">0</span> GANADAS</div>
               </div>
               <div class="col">
                 <div class="col-title icon-scale"></div>
-                <div class="col-sub">0 EMPATES</div>
+                <div class="col-sub"><span id="scoreDVal">0</span> EMPATES</div>
               </div>
             </div>
             <div class="board" id="board">
@@ -99,6 +99,96 @@
               <button class="cell" data-i="7"></button>
               <button class="cell" data-i="8"></button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-winner" class="screen">
+        <div class="result-card">
+          <div class="result-icon" id="resultIcon"></div>
+          <h2 class="result-title" id="winnerTitle">VICTORIA</h2>
+          <p class="result-subtitle" id="winnerSubtitle">JOSE EMILIO</p>
+
+          <div class="result-scores">
+            <div class="result-col">
+              <div class="result-player" id="resultPlayer1">JE</div>
+              <div class="result-value" id="resultScore1">0 GANADAS</div>
+            </div>
+            <div class="result-col">
+              <div class="result-player" id="resultPlayer2">CPU</div>
+              <div class="result-value" id="resultScore2">0 GANADAS</div>
+            </div>
+            <div class="result-col">
+              <div class="result-player result-balance"></div>
+              <div class="result-value" id="resultDraws">0 EMPATES</div>
+            </div>
+          </div>
+
+          <div class="result-buttons">
+            <button id="btnCancelResult" class="btn btn-orange">SALIR</button>
+            <button id="btnNextRound" class="btn btn-blue">
+              PRÓXIMO ROUND
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-draw" class="screen">
+        <div class="result-card">
+          <div class="result-icon result-icon-draw"></div>
+          <h2 class="result-title" id="drawTitle">EMPATE</h2>
+          <p class="result-subtitle" id="drawSubtitle">JOSE EMILIO</p>
+
+          <div class="result-scores">
+            <div class="result-col">
+              <div class="result-player" id="drawPlayer1">JE</div>
+              <div class="result-value" id="drawScore1">0 GANADAS</div>
+            </div>
+            <div class="result-col">
+              <div class="result-player" id="drawPlayer2">CPU</div>
+              <div class="result-value" id="drawScore2">0 GANADAS</div>
+            </div>
+            <div class="result-col">
+              <div class="result-player result-balance"></div>
+              <div class="result-value" id="drawDraws">0 EMPATES</div>
+            </div>
+          </div>
+
+          <div class="result-buttons">
+            <button id="btnCancelDraw" class="btn btn-orange">SALIR</button>
+            <button id="btnNextRoundDraw" class="btn btn-blue">
+              PRÓXIMO ROUND
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-continue-options" class="screen">
+        <div class="continue-card">
+          <div class="continue-decoration"></div>
+          <h2 class="continue-title">¿Cómo quieres continuar?</h2>
+          <div class="continue-buttons">
+            <button id="btnResetScore" class="btn btn-orange btn-continue">
+              EMPEZAR DESDE 0
+            </button>
+            <button id="btnKeepScore" class="btn btn-blue btn-continue">
+              GUARDAR PUNTAJE ANTERIOR
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-confirm-reset" class="screen">
+        <div class="confirm-card">
+          <div class="confirm-decoration"></div>
+          <h2 class="confirm-title">
+            ¿Seguro que desea<br />reiniciar la partida?
+          </h2>
+          <div class="confirm-buttons">
+            <button id="btnCancelReset" class="btn btn-orange">CANCELAR</button>
+            <button id="btnConfirmReset" class="btn btn-blue">
+              REINICIAR PARTIDA
+            </button>
           </div>
         </div>
       </section>

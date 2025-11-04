@@ -58,7 +58,7 @@ body {
 }
 .loading-title {
   color: #fff;
-  font-size: 64px;
+  font-size: 85px;
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -67,8 +67,8 @@ body {
 .bar {
   width: 520px;
   max-width: 90vw;
-  height: 36px;
-  border: 4px solid #fff;
+  height: 50px;
+  border: 2px solid #fff;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
@@ -134,7 +134,7 @@ body {
   width: 520px;
   max-width: 90%;
   margin: 0 auto;
-  top: 22vh;
+  top: 30vh;
   position: relative;
 }
 .form-title {
@@ -203,6 +203,18 @@ body {
   background: #2ab4fd;
 }
 
+#screen-game {
+  position: relative;
+}
+
+#screen-game.dimmed::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 5;
+}
+
 .game-wrap {
   width: 100%;
   height: 100%;
@@ -217,7 +229,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 32px;
-  margin-bottom: 100;
+  margin-top: 20px;
 }
 .side {
   display: flex;
@@ -244,6 +256,7 @@ body {
   display: grid;
   place-items: center;
   background: #fff;
+  margin-top: 10px;
 }
 .avatar-left {
   border: 4px solid var(--gray);
@@ -307,7 +320,7 @@ body {
   opacity: 1;
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
-  padding: 40px; /* Cambiado de 20px a 40px */
+  padding: 40px;
 }
 .panel-head {
   display: grid;
@@ -319,7 +332,8 @@ body {
 .col-title {
   color: #fff;
   font-weight: 900;
-  font-size: 16px;
+  font-size: 32px;
+  line-height: 1.2;
 }
 .col-sub {
   color: #a9b0bb;
@@ -328,23 +342,14 @@ body {
   letter-spacing: 0.2px;
   text-transform: uppercase;
 }
-.col-title {
-  color: #fff;
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 1.2;
-}
 .icon-scale {
-  /* Estas líneas eliminan el filtro del emoji y dan tamaño al contenedor */
-  width: 36px; /* Ajusta el ancho según lo necesites */
-  height: 36px; /* Ajusta la altura según lo necesites */
-  margin: 0 auto; /* Centra el elemento y añade un margen inferior */
-
-  /* Estas líneas cargan el SVG */
+  width: 36px;
+  height: 36px;
+  margin: 0 auto;
   background-image: url("./assets/map-lawyer.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; /* Asegura que el SVG se ajuste sin cortarse */
+  background-size: contain;
 }
 .board {
   width: 100%;
@@ -381,6 +386,268 @@ body {
   background-size: 45%;
 }
 
+#screen-winner,
+#screen-draw,
+#screen-continue-options,
+#screen-confirm-reset {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 20;
+}
+
+#screen-winner.overlay-active,
+#screen-draw.overlay-active,
+#screen-continue-options.overlay-active,
+#screen-confirm-reset.overlay-active {
+  display: flex;
+}
+
+.result-card {
+  width: 500px;
+  max-width: 90%;
+  background-image: url("./assets/vicoderr.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 20px;
+  padding: 38px 38px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-icon {
+  width: 100px;
+  height: 100px;
+  background-image: url("./assets/trophy.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: 8px;
+}
+
+.result-icon-draw {
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 130px;
+  height: 130px;
+}
+
+.result-icon-draw::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background-image: url("./assets/ionic-ios-close-1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  flex-shrink: 0;
+}
+
+.result-icon-draw::after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background-image: url("./assets/Ellipse 20.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  flex-shrink: 0;
+}
+
+.result-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+.result-subtitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+.result-scores {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  text-align: center;
+  margin: 16px 0 10px;
+}
+
+.result-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-player {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-balance {
+  width: 34px;
+  height: 34px;
+  background-image: url("./assets/map-lawyer.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.result-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.result-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.result-buttons .btn {
+  flex: 0 0 auto;
+  min-width: 140px;
+  max-width: 170px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000029;
+  text-transform: uppercase;
+}
+
+.continue-card {
+  width: 450px;
+  max-width: 90%;
+  background-image: url("./assets/otras.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 20px;
+  padding: 5px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.continue-decoration {
+  width: 100%;
+  height: 40px;
+}
+
+.continue-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  margin-top: -8px;
+}
+
+.continue-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0;
+}
+
+.btn-continue {
+  width: 220px;
+  max-width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000029;
+  text-transform: uppercase;
+}
+
+.confirm-card {
+  width: 450px;
+  max-width: 90%;
+  background-image: url("./assets/otrascopia.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 20px;
+  padding: 40px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  min-height: 350px;
+}
+
+.confirm-decoration {
+  width: 100%;
+  height: 40px;
+}
+
+.confirm-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+.confirm-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.confirm-buttons .btn {
+  flex: 1;
+  max-width: 200px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000029;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
 @media (max-width: 600px) {
   .vs-wrap {
     gap: 24px;
@@ -393,17 +660,97 @@ body {
     padding: 30px;
   }
   .vs-fine-tune {
-    /* Añade un pequeño ajuste vertical si es necesario */
-    transform: translateY(
-      -2px
-    ); /* Ajusta este valor (ej. -1px, -3px) hasta que se vea perfecto */
+    transform: translateY(-2px);
+  }
+  .result-card,
+  .continue-card,
+  .confirm-card {
+    padding: 36px 24px;
+  }
+  .result-title {
+    font-size: 38px;
+    line-height: 50px;
+  }
+  .result-subtitle {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .continue-title,
+  .confirm-title {
+    font-size: 32px;
   }
 }
-/* Ajuste fino para centrar el texto "VS" verticalmente */
+
 .vs-center-adjust {
-  /*
-  Un valor negativo (-) mueve el texto hacia ARRIBA.
-  Un valor positivo (+) mueve el texto hacia ABAJO.
-  */
   transform: translateY(9px);
+}
+
+@media (max-width: 480px) {
+  .loading-title {
+    font-size: 48px;
+  }
+  .title-center {
+    font-size: 42px;
+  }
+  .form-title {
+    font-size: 32px;
+  }
+  .result-title {
+    font-size: 32px;
+  }
+  .result-subtitle {
+    font-size: 22px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+  .game-btn {
+    width: 56px;
+    height: 48px;
+  }
+  .game-btn-back {
+    top: 16px;
+    left: 16px;
+  }
+  .game-btn-restart {
+    top: 16px;
+    right: 16px;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+  .vs {
+    font-size: 24px;
+  }
+
+  .result-buttons {
+    flex-direction: column;
+  }
+  .result-buttons .btn {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .loading-title {
+    font-size: 60px;
+  }
+  .title-center {
+    font-size: 52px;
+  }
+  .panel {
+    padding: 24px;
+  }
+}
+
+/* Usar unidades flexibles */
+.panel {
+  width: min(400px, 92vw);
+}
+.menu-wrap,
+.form-card {
+  width: min(520px, 90%);
 }
